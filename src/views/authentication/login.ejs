@@ -1,0 +1,30 @@
+<form method="post" action="/auth/login">
+  <div></div>
+  <h2>Welcome, Admin BCR</h2>
+  <div class="<%= status %>">
+    <p><%= message %></p>
+  </div>
+  <div>
+    <div>
+      <label for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="text"
+        placeholder="Contoh: johndee@gmail.com"
+        required
+      />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="6+ karakter"
+        required
+      />
+    </div>
+  </div>
+  <button type="submit">Sign In</button>
+</form>
