@@ -11,12 +11,14 @@ const {
   deleteCarRent,
 } = require("../controllers/dashboard.controller.js");
 
-router.get("/", homePage);
-router.get("/cars", carsPage);
-router.post("/cars", addNewCarRent);
-router.post("/cars/:id", updateCarRent);
-router.get("/cars/delete/:id", deleteCarRent);
-router.get("/add-car", addCarPage);
-router.get("/edit-car/:id", editCarPage);
+const isAuthenticated = require("../middlewares/isAuthenticated");
+
+router.get("/", isAuthenticated, homePage);
+router.get("/cars", isAuthenticated, carsPage);
+router.post("/cars", isAuthenticated, addNewCarRent);
+router.post("/cars/:id", isAuthenticated, updateCarRent);
+router.get("/cars/delete/:id", isAuthenticated, deleteCarRent);
+router.get("/add-car", isAuthenticated, addCarPage);
+router.get("/edit-car/:id", isAuthenticated, editCarPage);
 
 module.exports = router;

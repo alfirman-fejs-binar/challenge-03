@@ -34,8 +34,6 @@ const findIndexCar = (id) => {
 
 exports.homePage = (req, res) => {
   const str = req.cookies?.user;
-  if (!str) res.redirect("/auth/login");
-
   const user = JSON.parse(str);
 
   res.render("dashboard/index", {
@@ -46,8 +44,6 @@ exports.homePage = (req, res) => {
 };
 exports.carsPage = (req, res) => {
   const str = req.cookies?.user;
-  if (!str) res.redirect("/auth/login");
-
   const user = JSON.parse(str);
   const status = req.query?.status || "";
   const message = req.query?.message || "";
@@ -69,8 +65,6 @@ exports.carsPage = (req, res) => {
 };
 exports.addCarPage = (req, res) => {
   const str = req.cookies?.user;
-  if (!str) res.redirect("/auth/login");
-
   const user = JSON.parse(str);
 
   res.render("dashboard/add-car", {
@@ -81,8 +75,6 @@ exports.addCarPage = (req, res) => {
 };
 exports.editCarPage = (req, res) => {
   const str = req.cookies?.user;
-  if (!str) res.redirect("/auth/login");
-
   const user = JSON.parse(str);
   const car = findCar(req.params.id);
   res.render("dashboard/edit-car", {
