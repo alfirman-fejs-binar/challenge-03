@@ -44,7 +44,7 @@ exports.login = (req, res) => {
     );
 };
 
-exports.logout = (req, res, next) => {
+exports.logout = (req, res) => {
   res.cookie("user", "", { maxAge: 0 });
   res.redirect("/auth/login");
 };
